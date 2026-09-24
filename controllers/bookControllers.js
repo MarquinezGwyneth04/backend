@@ -1,5 +1,6 @@
 import * as bookService from '../services/bookService.js';
- export const fetchAllBooks = async (request, response) =>{
+
+export const fetchAllBooks = async (req, res) => {
     const books = await bookService.fetchAllBooks();
-    response.status(200).json(books);
- }
+    res.status(200).json(books);
+}

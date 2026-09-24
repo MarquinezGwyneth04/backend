@@ -1,7 +1,7 @@
-import * as bookService from '../services/bookService.js';
+import pool from '../config/db.js';
 
-export const fetchAllBooks = async (requestAnimationFrame, res) =>{
-const books = await bookService.fetchAllBooks();
-res.status(200).json(books);
+export const fetchAllBooks = async () => {
+	const [rows] = await pool.query('SELECT * FROM books');
+	return rows;
+};
 
-}
